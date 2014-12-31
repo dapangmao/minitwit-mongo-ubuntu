@@ -48,7 +48,7 @@ def copy_file():
     if not exists('/home/flask'):
         sudo('mkdir /home/flask')
     with cd('/home/flask'):
-        sudo('git clone https://dapangmao@bitbucket.org/dapangmao/minitwit-mongo-ubuntu.git')
+        sudo('git clone https://github.com/dapangmao/minitwit-mongo-ubuntu.git')
     with cd('/home/flask/minitwit-mongo-ubuntu'):
         sudo('python minitwit_test.py')
 
