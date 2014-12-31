@@ -49,6 +49,8 @@ def copy_file():
         sudo('mkdir /home/flask')
     with cd('/home/flask'):
         sudo('git clone https://github.com/dapangmao/minitwit-mongo-ubuntu.git')
+    with cd('/home/flask/{}'.format(project_name)):
+        sudo('python minitwit_tests.py')
 
 def adjust_nginx():
     sudo('/etc/init.d/nginx start')
