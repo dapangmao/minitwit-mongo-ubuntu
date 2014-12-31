@@ -73,3 +73,11 @@ def adjust_supervisor():
 def run_flask():
     sudo('supervisorctl start {}'.format(project_name))
     sudo('supervisorctl status')
+
+def deploy_minitwit():
+    install_basics()
+    install_mongo()
+    copy_file()
+    adjust_nginx()
+    adjust_supervisor()
+    run_flask()
