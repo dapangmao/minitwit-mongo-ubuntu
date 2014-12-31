@@ -72,13 +72,4 @@ def adjust_supervisor():
 
 def run_flask():
     sudo('supervisorctl start {}'.format(project_name))
-
-def check_status():
     sudo('supervisorctl status')
-
-
-
-
-
-
-
