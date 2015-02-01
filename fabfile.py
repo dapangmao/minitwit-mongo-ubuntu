@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from fabric.api import cd, env, prompt, local, sudo
+from fabric.api import cd, env, puts, sudo
 from fabric.contrib.files import exists
 
 env.hosts = ['YOUR IP ADDRESS']
@@ -71,8 +71,8 @@ def adjust_supervisor():
 
 def run_flask():
     sudo('supervisorctl start {}'.format(project_name))
-    sudo('supervisorctl status'
-    prompt('Now go to http://{} to view the app'.format(env.hosts[0]))
+    sudo('supervisorctl status')
+    puts('Now go to http://{} to view the app'.format(env.hosts[0]))
 
 def deploy_minitwit():
     install_basics()
