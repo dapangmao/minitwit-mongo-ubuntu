@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from fabric.api import cd, env, lcd, put, prompt, local, sudo
+from fabric.api import cd, env, prompt, local, sudo
 from fabric.contrib.files import exists
 
 env.hosts = ['YOUR IP ADDRESS']
@@ -9,7 +9,6 @@ env.password = 'YOUR PASSWORD'
 
 project_name = "minitwit-mongo-ubuntu"
 python_requirements = ['flask', 'pymongo', 'Flask-PyMongo', 'pytz']
-
 supervisor_conf = """
 [program: %s]
 command = gunicorn minitwit:app -b 127.0.0.1:5000
@@ -72,7 +71,8 @@ def adjust_supervisor():
 
 def run_flask():
     sudo('supervisorctl start {}'.format(project_name))
-    sudo('supervisorctl status')
+    sudo('supervisorctl status'
+    prompt('Now go to http://{} to view the app'.format(env.hosts[0]))
 
 def deploy_minitwit():
     install_basics()
